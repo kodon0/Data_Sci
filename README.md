@@ -1,2 +1,1 @@
 # Data-Science-Machine-Learning-Public-
-This repo contains a variety of Data Sience/Machine Learning projects I have carried out. Related data sets are also included for completeness. Some of these rpojects have to do with kagglecom submissions, whereas others are done for the pure sake of demonstration. Majority of these projects were carried out in jupyter notebook dude to ease of readability and work flow. These files are public, nd any personal data located herein is completely fabricated. 
