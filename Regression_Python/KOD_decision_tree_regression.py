@@ -8,13 +8,13 @@ Created on Tue May 19 09:13:47 2020
 
 
 #Decision Tree Regression
-#Given: user asks for $165k - is this a true/good salary? user is between level 6 and 7 
+#Given: user asks for $165k - is this a true/good salary? user is between level 6 and 7
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv('/Users/kieranodonnell/Desktop/Udemy/Machine Learning A-Z (Codes and Datasets)/Part 2 - Regression/Section 8 - Decision Tree Regression/Python/Position_Salaries.csv')
+df = pd.read_csv('Position_Salaries.csv')
 
 #Note - decision tree regression is not a great choice for such small data sets
 

@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed May 28 12:18:06 2020
+
+@author: kieranodonnell
+"""
 # Kernel SVM
 
 # Importing the libraries

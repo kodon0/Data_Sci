@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed May 28 10:48:06 2020
+
+@author: kieranodonnell
+"""
 # K-Nearest Neighbors (K-NN)
 
 # Importing the libraries

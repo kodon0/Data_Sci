@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed May 28 10:38:56 2020
+
+@author: kieranodonnell
+"""
 # Naive Bayes
 
 # Importing the libraries

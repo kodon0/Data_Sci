@@ -6,13 +6,13 @@ Created on Thu May 14 14:13:57 2020
 @author: kieranodonnell
 """
 
-#Multiple linear regression 
+#Multiple linear regression
 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("/Users/kieranodonnell/Desktop/Udemy/Machine Learning A-Z (Codes and Datasets)/Part 2 - Regression/Section 5 - Multiple Linear Regression/Python/50_Startups.csv")
+df = pd.read_csv("50_Startups.csv")
 
 #Encode categroical data - can use get dummy variabes (pd.get_dummies())
 #Or can use onehot encoding
@@ -33,7 +33,7 @@ X = np.array(ct.fit_transform(X))
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, random_state=42)
 
-#Import regressor (same as simple regression -> autodetects extra features) 
+#Import regressor (same as simple regression -> autodetects extra features)
 from sklearn.linear_model import LinearRegression
 
 mlr = LinearRegression()

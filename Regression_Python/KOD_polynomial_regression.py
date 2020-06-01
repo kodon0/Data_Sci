@@ -8,13 +8,13 @@ Created on Mon May 18 11:26:46 2020
 
 
 #Polynomial regression vs linear regression
-#Given: user asks for $165k - is this a true/good salary? user is between level 6 and 7 
+#Given: user asks for $165k - is this a true/good salary? user is between level 6 and 7
 
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-df =  pd.read_csv("/Users/kieranodonnell/Desktop/Udemy/Machine Learning A-Z (Codes and Datasets)/Part 2 - Regression/Section 6 - Polynomial Regression/Python/Position_Salaries.csv")
+df =  pd.read_csv("Position_Salaries.csv")
 
 X = df.iloc[:,1:-1].values #Only want 'level' column
 y = df.iloc[:,-1].values

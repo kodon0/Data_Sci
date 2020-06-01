@@ -22,7 +22,7 @@ y = df.iloc[:, -1].values
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 1)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
 
 
 # Feature Scaling
@@ -43,7 +43,7 @@ y_pred = svm.predict(X_test)
 
 #Predicting singular value for age and salary:
 print(svm.predict(scaler.transform([[30,80000]])))
- 
+
 #Comparing predicted and real y
 print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
@@ -88,4 +88,3 @@ plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
 plt.show()
-

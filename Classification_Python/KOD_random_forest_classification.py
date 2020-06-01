@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue May 26 09:19:56 2020
+Created on Wed May 27 08:24:46 2020
 
 @author: kieranodonnell
 """
 
 
-#Naive Bayes 
+#Random Forest Classifier
 
 # Importing the libraries
 import numpy as np
@@ -22,7 +22,7 @@ y = df.iloc[:, -1].values
 
 # Splitting the dataset into the Training set and Test set
 from sklearn.model_selection import train_test_split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 1)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
 
 
 # Feature Scaling
@@ -32,18 +32,18 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 #Getting the Gaussian Naive Bayes model
-from sklearn.naive_bayes import GaussianNB
-gnb = GaussianNB()
+from sklearn.ensemble import RandomForestClassifier
+rfc = RandomForestClassifier(n_estimators = 10, criterion = 'entropy')
 
 #Training model
-gnb.fit(X_train, y_train)
+rfc.fit(X_train, y_train)
 
 #Make prediction
-y_pred = gnb.predict(X_test)
+y_pred = rfc.predict(X_test)
 
 #Predicting singular value for age and salary:
-print(gnb.predict(scaler.transform([[30,80000]])))
- 
+print(rfc.predict(scaler.transform([[30,80000]])))
+
 #Comparing predicted and real y
 print(np.concatenate((y_pred.reshape(len(y_pred),1), y_test.reshape(len(y_test),1)),1))
 
@@ -60,13 +60,13 @@ from matplotlib.colors import ListedColormap
 X_set, y_set = scaler.inverse_transform(X_test), y_test
 X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 10, stop = X_set[:, 0].max() + 10, step = 0.25),
                      np.arange(start = X_set[:, 1].min() - 1000, stop = X_set[:, 1].max() + 1000, step = 0.25))
-plt.contourf(X1, X2, gnb.predict(scaler.transform(np.array([X1.ravel(), X2.ravel()]).T)).reshape(X1.shape),
+plt.contourf(X1, X2, rfc.predict(scaler.transform(np.array([X1.ravel(), X2.ravel()]).T)).reshape(X1.shape),
              alpha = 0.75, cmap = ListedColormap(('red', 'green')))
 plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('GNB (Test set)')
+plt.title('Random Forest Classifier (Test set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
@@ -77,15 +77,14 @@ from matplotlib.colors import ListedColormap
 X_set, y_set = scaler.inverse_transform(X_train), y_train
 X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 10, stop = X_set[:, 0].max() + 10, step = 0.25),
                      np.arange(start = X_set[:, 1].min() - 1000, stop = X_set[:, 1].max() + 1000, step = 0.25))
-plt.contourf(X1, X2, gnb.predict(scaler.transform(np.array([X1.ravel(), X2.ravel()]).T)).reshape(X1.shape),
+plt.contourf(X1, X2, rfc.predict(scaler.transform(np.array([X1.ravel(), X2.ravel()]).T)).reshape(X1.shape),
              alpha = 0.75, cmap = ListedColormap(('red', 'green')))
 plt.xlim(X1.min(), X1.max())
 plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1], c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('GNB (Training set)')
+plt.title('Random Forest Classifier (Training set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
 plt.show()
-
