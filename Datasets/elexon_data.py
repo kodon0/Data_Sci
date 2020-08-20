@@ -16,7 +16,7 @@ class DataAccesser():
 
     '''This class takes in a user's api_key = api_key, start = start date in YYYY-mm-dd,
     end = end date in YYYY-mm-dd and Elexon data code in XXXXXX. Generated data will have 30 min increments.
-    Suggest using the 1st day of the month in string format.
+    Suggest using the 1st day of the month in string format. Builds on ElexonRawClient https://github.com/MichaelKavanagh/elexon.
 
     Requires following imports:
 
