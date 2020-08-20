@@ -12,11 +12,12 @@ from datetime import datetime, timedelta
 from pandas.tseries.offsets import MonthEnd
 from elexon import ElexonRawClient
 
-class DataAccesser():
+class PriceDataAccesser():
 
     '''This class takes in a user's api_key = api_key, start = start date in YYYY-mm-dd,
     end = end date in YYYY-mm-dd and Elexon data code in XXXXXX. Generated data will have 30 min increments.
     Suggest using the 1st day of the month in string format. Builds on ElexonRawClient https://github.com/MichaelKavanagh/elexon.
+    Tested with 'DERSYSDATA' - i.e.pricing data and imbalances. This is due to how Exelon API uses to and from dates!
 
     Requires following imports:
 
